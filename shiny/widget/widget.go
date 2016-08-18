@@ -17,6 +17,7 @@ import (
 	"golang.org/x/exp/shiny/widget/theme"
 	"golang.org/x/image/math/f64"
 	"golang.org/x/mobile/event/lifecycle"
+	"golang.org/x/mobile/event/key"
 	"golang.org/x/mobile/event/mouse"
 	"golang.org/x/mobile/event/paint"
 	"golang.org/x/mobile/event/size"
@@ -114,7 +115,7 @@ func RunWindow(s screen.Screen, root node.Node, opts *RunWindowOptions) error {
 				return nil
 			}
 
-		case gesture.Event, mouse.Event:
+		case gesture.Event, mouse.Event, key.Event:
 			root.OnInputEvent(e, image.Point{})
 
 		case paint.Event:
